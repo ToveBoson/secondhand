@@ -14,4 +14,33 @@ class ClothingModel extends DB {
         $statement = $this->pdo->prepare($sql);
         $statement->execute([$garment, $size, $price]);
     }
+
+    public function totalCostPerSeller($sellerId){
+        $sql = "SELECT SUM(price) AS totalCost FROM {$this->table} WHERE seller_id = ?";
+        $statement = $this->pdo->prepare($sql);
+        $statement->execute([$sellerId]);
+
+        $result = $statement->fetch(PDO::FETCH_ASSOC);
+
+        return $result['totalCost'];
+
+    }
+
+    public function getNumberOfGarments($sellerId){
+        $sql = "SELECT COUNT(*) AS total FROM {$this->table} WHERE seller_id = ?";
+        $statement = $this->pdo->prepare($sql);
+        $statement->execute([$sellerId]);
+
+        $result = $statement->fetch(PDO::FETCH_ASSOC);
+
+         if($result && isset($result['total'])){
+        return $result['total'];
+     }
+     return 0;
+
+    }
+
+
+
+
 }

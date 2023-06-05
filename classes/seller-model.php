@@ -19,4 +19,34 @@ class SellersModel extends DB {
         $statement->execute([$first_name, $last_name, $email]);
     }
 
+    public function getSellerWithGarments(int $id){
+        $query = "SELECT sellers.id, sellers.first_name, sellers.last_name, clothes.garment, clothes.size, clothes.price, clothes.seller_id FROM sellers 
+        JOIN clothes ON sellers.id = clothes.seller_id 
+        WHERE sellers.id = ?";
+        $statement = $this->pdo->prepare($query);
+        $statement->execute([$id]);
+
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+        if($result) {
+            $seller = [
+                "id" => $result[0]["id"],
+                "first_name" => $result[0]["first_name"],
+                "last_name" => $result[0]["last_name"]
+            ];
+
+            foreach($result as $row) {
+                $seller["garments"][] = [
+                    "garment" => $row["garment"],
+                    "size" => $row["size"], 
+                    "price" => $row["price"]              
+                ];
+            }
+                    return $seller;
+        }
+
+            return null;
+
+    }
+
 }
