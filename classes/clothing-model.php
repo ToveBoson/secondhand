@@ -9,10 +9,10 @@ class ClothingModel extends DB {
         return $this->getAll($this->table);
     }
 
-    public function addGarment(string $garment, string $size, int $price) {
-        $sql = "INSERT INTO {$this->table} (garment, size, price) VALUES (?,?,?)";
+    public function addGarment(string $garment, string $size, int $price, int $sellerId) {
+        $sql = "INSERT INTO {$this->table} (garment, size, price, seller_id) VALUES (?,?,?,?)";
         $statement = $this->pdo->prepare($sql);
-        $statement->execute([$garment, $size, $price]);
+        $statement->execute([$garment, $size, $price, $sellerId]);
     }
 
     public function totalCostPerSeller($sellerId){
@@ -39,6 +39,24 @@ class ClothingModel extends DB {
      return 0;
 
     }
+
+
+public function getSoldGarmentCount() {
+    $sql = "SELECT COUNT(*) AS count FROM clothes WHERE sold_date IS NOT NULL";
+    $statement = $this->pdo->prepare($sql);
+    $statement->execute();
+
+    $result = $statement->fetch(PDO::FETCH_ASSOC);
+    $count = $result['count'];
+
+    return $count;
+}
+
+public function markGarmentAsSold(){
+    $sql = "UPDATE clothes SET sold_date = CURRENT_DATE WHERE id IN";
+    $statement = $this->pdo->prepare($sql);
+    $statement->execute();
+}
 
 
 

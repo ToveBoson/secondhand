@@ -17,7 +17,6 @@ class ExtendedSellerView  {
         echo "<h1> {$seller["first_name"]} {$seller["last_name"]} </h1>";
         echo "<ul>";
 
-        $totalCost = 0;
         $sellerId = $seller['id'];
         $garmentCost = $seller['id'];
         $numberOfGarments = $this->clothingModel->getNumberOfGarments($sellerId);
