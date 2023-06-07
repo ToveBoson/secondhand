@@ -3,6 +3,8 @@
 
 <form action="form-handlers/garment-form-handler.php" method="post">
 
+<div class="formContainer">
+
 <label for="garment">Plagg: </label>
 <input type="text" name="garment" id="garment">
 
@@ -13,7 +15,7 @@
 <input type="text" name="price" id="price">
 
 <div>
-    <label for="seller_id">Säljare:</label>
+
     <select name="seller_id" id="seller_id">
         <option value="">--Välj säljare--</option>
             <?php 
@@ -26,4 +28,6 @@
 </div>
 
 <button type="submit">Lägg till plagg</button>
+
+</div>
 </form>

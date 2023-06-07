@@ -1,6 +1,6 @@
 <form action="form-handlers/sold-garments-form-handler.php" method="post">
 
-<div>
+<div class="soldContainer">
     <label for="garment">Plagg:</label>
     <select name="id" id="id">
         <option value="">--Välj plagg--</option>

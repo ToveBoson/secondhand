@@ -10,6 +10,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  height: 120vh;
 }
 
 .footerContainer {
@@ -31,4 +32,34 @@ body {
 .sold-label {
   color: red;
   font-weight: bold;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  line-height: 2em;
+}
+
+h1 a {
+  color: white;
+  text-decoration: none;
+}
+
+nav a {
+  color: rgb(237, 230, 220);
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+.soldContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  line-height: 2em;
 }

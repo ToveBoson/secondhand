@@ -11,7 +11,7 @@
     <title>Second Hand</title>
 </head>
 <body>
-    <h1> Toves Second Hand</h1>
+    <h1><a href="index.php">Toves Second Hand</a></h1>
 
     
     
