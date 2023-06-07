@@ -1,4 +1,6 @@
 
+
+
 <form action="form-handlers/garment-form-handler.php" method="post">
 
 <label for="garment">Plagg: </label>
@@ -11,7 +13,7 @@
 <input type="text" name="price" id="price">
 
 <div>
-    <label for="seller">Säljare:</label>
+    <label for="seller_id">Säljare:</label>
     <select name="seller_id" id="seller_id">
         <option value="">--Välj säljare--</option>
             <?php 

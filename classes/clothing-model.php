@@ -52,10 +52,17 @@ public function getSoldGarmentCount() {
     return $count;
 }
 
-public function markGarmentAsSold(){
-    $sql = "UPDATE clothes SET sold_date = CURRENT_DATE WHERE id IN";
+public function markGarmentAsSold($garmentId){
+    $sql = "UPDATE clothes SET sold_date = CURRENT_DATE WHERE id = :garment_id";
     $statement = $this->pdo->prepare($sql);
-    $statement->execute();
+    $statement->execute(['garment_id' => $garmentId]);
+}
+
+
+public function getSoldGarments() {
+    $sql = "SELECT * FROM clothes WHERE sold_date IS NOT NULL";
+    $statement = $this->pdo->query($sql);
+    return $statement->fetchAll(PDO::FETCH_ASSOC);
 }
 
 

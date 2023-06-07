@@ -21,7 +21,5 @@ if($id !== false) {
     echo "Denna finns ej";
 }
 
-// $extendedSellerView->renderSelectedSeller($sellerModel->getSellerWithGarments($id));
-
 
 include "partials/footer.php";
