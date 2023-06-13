@@ -14,12 +14,6 @@ $sellerModel = new SellersModel($pdo);
 include "partials/header.php";
 include "partials/nav.php";
 
-if(isset($_POST['garment_checkbox'])){
-    foreach($_POST['garment_checkbox'] as $garmentId) {
-        $clothingModel->markGarmentAsSold($garmentId);
-    }
-}
-
 
 $clothingView->renderAllGarments($clothingModel->getAllClothes());
 

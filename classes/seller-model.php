@@ -20,7 +20,7 @@ class SellersModel extends DB {
     }
 
     public function getSellerWithGarments(int $id){
-        $query = "SELECT sellers.id, sellers.first_name, sellers.last_name, clothes.garment, clothes.size, clothes.price, clothes.seller_id FROM sellers 
+        $query = "SELECT sellers.id, sellers.first_name, sellers.last_name, clothes.garment, clothes.size, clothes.price, clothes.seller_id, clothes.sold_date FROM sellers 
         JOIN clothes ON sellers.id = clothes.seller_id 
         WHERE sellers.id = ?";
         $statement = $this->pdo->prepare($query);
@@ -39,7 +39,8 @@ class SellersModel extends DB {
                 $seller["garments"][] = [
                     "garment" => $row["garment"],
                     "size" => $row["size"], 
-                    "price" => $row["price"]              
+                    "price" => $row["price"],              
+                    "sold_date" => $row["sold_date"]              
                 ];
             }
                     return $seller;

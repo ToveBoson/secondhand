@@ -14,9 +14,6 @@ $sellerModel = new SellersModel($pdo);
 include "partials/header.php";
 include "partials/nav.php";
 
-
-
-
 $garments = $clothingModel->getAllClothes();
 $soldGarments = $clothingModel->getSoldGarments();
 

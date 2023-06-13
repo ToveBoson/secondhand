@@ -7,7 +7,10 @@
             <?php 
 
             foreach($garments as $garment) {
-            echo "<option value='{$garment['id']}'>{$garment['garment']} {$garment['size']} {$garment['price']} kr</option>";
+
+            if($garment['sold_date'] == null) {
+                echo "<option value='{$garment['id']}'>{$garment['garment']} {$garment['size']} {$garment['price']} kr</option>";
+            }
         }    
         ?>
     </select>
