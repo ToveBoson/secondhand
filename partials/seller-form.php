@@ -1,7 +1,7 @@
 
 
 
-<form action="form-handlers/seller-form-handler.php" method="post">
+<form action="form-handlers/seller-form-handler.php" method="post" class="sellerForm">
 
 <label for="first_name">Förnamn: </label>
 <input type="text" name="first_name" id="first_name">

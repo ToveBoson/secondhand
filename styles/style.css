@@ -63,3 +63,11 @@ nav a:hover {
   align-items: center;
   line-height: 2em;
 }
+
+.sellerForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  line-height: 2em;
+}

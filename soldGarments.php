@@ -22,8 +22,6 @@ include "partials/sold-garment-form.php";
 echo "<h2> Sålda plagg: </h2>";
 $clothingView->renderAllGarments($soldGarments);
 
-// echo "<h2> Tillgängliga plagg: </h2>";
-// $clothingView->renderAllGarments($garments);
 
 
 include "partials/footer.php";
